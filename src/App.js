@@ -1,23 +1,15 @@
-import logo from './logo.svg';
+import React from 'react';
+import Box from './components/Box';
+import boxes from './components/boxes';
 import './App.css';
 
 function App() {
+  const [boxesArray, setBoxesArray] = React.useState(boxes)
+  const mapBoxesArray = boxesArray.map(box => <Box num={box.id} key={box.id} on={box.on}/>)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {mapBoxesArray}
     </div>
   );
 }
